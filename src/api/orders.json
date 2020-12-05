@@ -1,0 +1,40 @@
+{
+  "orders": [
+    {
+      "id": "1",
+      "customer": "1",
+      "items": [
+        {
+          "product": "1",
+          "quantity": 3
+        },
+        {
+          "product": "23",
+          "quantity": 2
+        }
+      ],
+      "status": 0,
+      "comment": "Some extra comment about this order",
+      "createdAt": "Some time stamp",
+      "updatedAt": "Some time stamp"
+    },
+    {
+      "id": "2",
+      "customer": "1",
+      "items": [
+        {
+          "product": "1",
+          "quantity": 3
+        },
+        {
+          "product": "23",
+          "quantity": 2
+        }
+      ],
+      "status": 0,
+      "comment": "Some extra comment about this order",
+      "createdAt": "Some time stamp",
+      "updatedAt": "Some time stamp"
+    }
+  ]
+}
