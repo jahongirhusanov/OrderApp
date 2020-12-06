@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   editIcon: {},
   tableHeader: {
     backgroundColor: "#D9EDF6",
-    fontSize: "1rem",
+    fontSize: "0.9rem",
     fontWeight: 900,
     color: "#3F51B5",
   },
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
 });
 
 const columns = [
-  { id: "store", label: "Xaridor Nomi", minWidth: 120 },
+  { id: "store", label: "Харидор", minWidth: 120 },
   { id: "items", label: "Буюртмалар Сони", minWidth: 70 },
   { id: "status", label: "Статус", minWidth: 80 },
   {
@@ -60,6 +60,28 @@ const rows = [
     "Аҳмаджон",
     "Жами: 2",
     "Қабул Қилинди",
+    "918878181",
+    "13:45 Dekabr 2, 2020",
+    "Оқ-Томир Қишлоғи",
+    <Link to="/order-item{1}">
+      <VisibilityIcon color="primary" />
+    </Link>
+  ),
+  createData(
+    "Аҳмаджон",
+    "Жами: 2",
+    "Proccessing",
+    "918878181",
+    "13:45 Dekabr 2, 2020",
+    "Оқ-Томир Қишлоғи",
+    <Link to="/order-item{1}">
+      <VisibilityIcon color="primary" />
+    </Link>
+  ),
+  createData(
+    "Аҳмаджон",
+    "Жами: 2",
+    "On Hold",
     "918878181",
     "13:45 Dekabr 2, 2020",
     "Оқ-Томир Қишлоғи",
