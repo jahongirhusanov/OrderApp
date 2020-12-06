@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
@@ -10,6 +10,7 @@ import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const useStyles = makeStyles({
   root: {
@@ -55,46 +56,56 @@ function createData(
   return { store, items, status, phoneNumber, createdAt, address, icon };
 }
 
-const rows = [
-  createData(
-    "Аҳмаджон",
-    "Жами: 2",
-    "Қабул Қилинди",
-    "918878181",
-    "13:45 Dekabr 2, 2020",
-    "Оқ-Томир Қишлоғи",
-    <Link to="/order-item{1}">
-      <VisibilityIcon color="primary" />
-    </Link>
-  ),
-  createData(
-    "Аҳмаджон",
-    "Жами: 2",
-    "Proccessing",
-    "918878181",
-    "13:45 Dekabr 2, 2020",
-    "Оқ-Томир Қишлоғи",
-    <Link to="/order-item{1}">
-      <VisibilityIcon color="primary" />
-    </Link>
-  ),
-  createData(
-    "Аҳмаджон",
-    "Жами: 2",
-    "On Hold",
-    "918878181",
-    "13:45 Dekabr 2, 2020",
-    "Оқ-Томир Қишлоғи",
-    <Link to="/order-item{1}">
-      <VisibilityIcon color="primary" />
-    </Link>
-  ),
-];
+// const rows = [
+//   createData(
+//     "Аҳмаджон",
+//     "Жами: 2",
+//     "Қабул Қилинди",
+//     "918878181",
+//     "13:45 Dekabr 2, 2020",
+//     "Оқ-Томир Қишлоғи",
+//     <Link to="/order-item{1}">
+//       <VisibilityIcon color="primary" />
+//     </Link>
+//   ),
+//   createData(
+//     "Аҳмаджон",
+//     "Жами: 2",
+//     "Proccessing",
+//     "918878181",
+//     "13:45 Dekabr 2, 2020",
+//     "Оқ-Томир Қишлоғи",
+//     <Link to="/order-item{1}">
+//       <VisibilityIcon color="primary" />
+//     </Link>
+//   ),
+//   createData(
+//     "Аҳмаджон",
+//     "Жами: 2",
+//     "On Hold",
+//     "918878181",
+//     "13:45 Dekabr 2, 2020",
+//     "Оқ-Томир Қишлоғи",
+//     <Link to="/order-item{1}">
+//       <VisibilityIcon color="primary" />
+//     </Link>
+//   ),
+// ];
 
 export default function StickyHeadTable() {
   const classes = useStyles();
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  const [rows, setRows] = useState([]);
+
+  useEffect(() => {
+    axios.get(`http://localhost:3000/orders`).then((res) => {
+      const orders = res.data;
+      // setRows({ persons });
+      console.log(orders);
+    });
+  });
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
