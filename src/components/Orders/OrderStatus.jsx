@@ -27,7 +27,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ["Қабул Қилинди", "Бажарилмоқда", "Жўнатилди", "Yetkazildi"];
+  return [
+    "Қабул Қилинди ...",
+    "Бажарилмоқда ...",
+    "Жўнатилди ...",
+    "Етказиб Берилди ...",
+  ];
 }
 
 function OrderStatus() {
@@ -58,7 +63,10 @@ function OrderStatus() {
             fontWeight: "900",
           }}
           columns={[
-            { title: "product Name", field: "productName" },
+            {
+              title: "product Name",
+              field: "productName",
+            },
             { title: "product Qty", field: "productQuantity" },
             { title: "Price", field: "price" },
             { title: "comment", field: "comment" },
@@ -81,6 +89,7 @@ function OrderStatus() {
             toolbar: false,
             paging: false,
             header: false,
+            padding: "dense",
           }}
         />
       </Grid>
