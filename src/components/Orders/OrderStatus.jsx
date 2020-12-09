@@ -90,6 +90,7 @@ function OrderStatus() {
             paging: false,
             header: false,
             padding: "dense",
+           
           }}
         />
       </Grid>

@@ -12,7 +12,7 @@ function MaterialTableSample() {
         { title: "Исм Шарифи", field: "customerName" },
         { title: "Буюртма #", field: "orderNumber", type: "numeric" },
         { title: "Буюртмалар Сони", field: "orderCount", type: "numeric" },
-        { title: "Status", field: "status" },
+        { title: "Статус", field: "status" },
         { title: "Телефон #", field: "customerPhoneNum" },
         { title: "Манзил", field: "customerAddress" },
       ]}
@@ -46,6 +46,15 @@ function MaterialTableSample() {
           customerAddress: "Bojoy Qishlogi",
         },
       ]}
+      options={{
+        headerStyle: {
+          // backgroundColor: "#6F7BDA",
+          color: "#6F7BDA",
+          fontWeight: 900,
+          fontSize: "1rem",
+          textAlign: "center",
+        },
+      }}
       detailPanel={[
         {
           tooltip: "Buyurtma Statusi",
