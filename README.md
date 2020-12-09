@@ -6,14 +6,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-<!-- // install npm,
-// install material-ui
-// install icon
-// npm install --save react-router
-// npm install axios
-// npm install material-table --save
-// npm install @material-ui/core --save -->
-
 ### `npm start`
 
 Runs the app in the development mode.\
