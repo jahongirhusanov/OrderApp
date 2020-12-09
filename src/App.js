@@ -12,3 +12,5 @@ export default App;
 // install icon
 // npm install --save react-router
 // npm install axios
+// npm install material-table --save
+// npm install @material-ui/core --save
