@@ -1,10 +1,9 @@
 import React from 'react'
+import CategoryList from '../../components/Category/CategoryList'
 
 function Category() {
     return (
-        <div>
-            {/* TODO: It will be existing Categories, subCategories, with add/edit option */}
-        </div>
+       <CategoryList/>
     )
 }
 

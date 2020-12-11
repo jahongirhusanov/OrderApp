@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MaterialTable from "material-table";
 import OrderStatus from "./OrderStatus";
 import profilePic from "../../images/profilePic.jpg";
 
 function MaterialTableSample() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const doFetch = async () => {
+      // const response = await fetch("https://randomuser.me/api/?results=100");
+      const response = await fetch("http://localhost:3000/orders");
+      const body = await response.json();
+      const contacts = body.data;
+      console.log(contacts);
+      setData(contacts);
+    };
+    doFetch();
+  }, []);
+
   return (
     <MaterialTable
       title="Буюртмалар"
@@ -16,39 +30,38 @@ function MaterialTableSample() {
         { title: "Телефон #", field: "customerPhoneNum" },
         { title: "Манзил", field: "customerAddress" },
       ]}
-      // data={this.state.OrderList}
-      data={[
-        {
-          storeName: "Musaffo Osmon Corp",
-          customerName: "Polonchi Pistonchi",
-          orderNumber: "AA11122",
-          orderCount: 3,
-          status: "Qabul Qilindi",
-          customerPhoneNum: "91-333-33-22",
-          customerAddress: "Oq Yer Qishlogi",
-        },
-        {
-          storeName: "Rishton Inc",
-          customerName: "Pistonchi Baranov",
-          orderNumber: "AA11133",
-          orderCount: 4,
-          status: "Tayyor",
-          customerPhoneNum: "91-666-33-11",
-          customerAddress: "Buston Qishlogi",
-        },
-        {
-          storeName: "Oq Yer Inc",
-          customerName: "Pidyonchixon Baranova",
-          orderNumber: "AA11134",
-          orderCount: 7,
-          status: "Bajarilmoqda",
-          customerPhoneNum: "91-666-33-00",
-          customerAddress: "Bojoy Qishlogi",
-        },
-      ]}
+      data={[data]}
+      // data={[
+      //   {
+      //     storeName: "Musaffo Osmon Corp",
+      //     customerName: "Polonchi Pistonchi",
+      //     orderNumber: "AA11122",
+      //     orderCount: 3,
+      //     status: "Qabul Qilindi",
+      //     customerPhoneNum: "91-333-33-22",
+      //     customerAddress: "Oq Yer Qishlogi",
+      //   },
+      //   {
+      //     storeName: "Rishton Inc",
+      //     customerName: "Pistonchi Baranov",
+      //     orderNumber: "AA11133",
+      //     orderCount: 4,
+      //     status: "Tayyor",
+      //     customerPhoneNum: "91-666-33-11",
+      //     customerAddress: "Buston Qishlogi",
+      //   },
+      //   {
+      //     storeName: "Oq Yer Inc",
+      //     customerName: "Pidyonchixon Baranova",
+      //     orderNumber: "AA11134",
+      //     orderCount: 7,
+      //     status: "Bajarilmoqda",
+      //     customerPhoneNum: "91-666-33-00",
+      //     customerAddress: "Bojoy Qishlogi",
+      //   },
+      // ]}
       options={{
         headerStyle: {
-          // backgroundColor: "#6F7BDA",
           color: "#6F7BDA",
           fontWeight: 900,
           fontSize: "1rem",
@@ -83,24 +96,6 @@ function MaterialTableSample() {
             );
           },
         },
-        // {
-        //   icon: "account_circle",
-        //   tooltip: "Show Surname",
-        //   render: (rowData) => {
-        //     return (
-        //       <div
-        //         style={{
-        //           fontSize: 100,
-        //           textAlign: "center",
-        //           color: "white",
-        //           backgroundColor: "#E53935",
-        //         }}
-        //       >
-        //         {rowData.surname}
-        //       </div>
-        //     );
-        //   },
-        // },
       ]}
     />
   );

@@ -1,14 +1,19 @@
-import React from "react";
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import { Grid } from '@material-ui/core'
+import StoreList from '../../components/Store/StoreList'
+
+const useStyles = makeStyles({
+  root: {},
+})
 
 function StoreItems() {
+  const classes = useStyles()
   return (
-    <div>
-      {/* TODO: It will be all existing Stores, addButton, Edit, viewSingle Store by {id} */}
-      <p>
-        It will be all existing Stores, addButton, Edit, viewSingle Store by ID
-      </p>
-    </div>
-  );
+    <Grid container direction='column' className={classes.root}>
+      <StoreList />
+    </Grid>
+  )
 }
 
-export default StoreItems;
+export default StoreItems
